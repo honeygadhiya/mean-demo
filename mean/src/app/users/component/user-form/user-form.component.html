@@ -1,0 +1,19 @@
+<button class="btn btn-info" routerLink="/back">Back</button>
+<form novalidate [formGroup]="myGroup" class="form-group col-md-4">
+    
+    Id:<input type="text" formControlName="id" class="form-control">
+    Name: <input type="text" formControlName="name" class="form-control">
+    Branch: <select formControlName="branch" class="form-control">
+              <option value="">Select</option>
+              <option *ngFor = "let branch of branch" [ngValue]="branch">{{branch}}</option>
+            </select>
+    Gender:<br><input type="radio" value="female" name="gender" formControlName="gender">Female
+            <input type="radio" value="male" name="gender" formControlName="gender">Male
+     <br><br>     
+     <div *ngIf="!isButton">  
+        <button type="submit" class="btn btn-primary" (click)="addData()">Add</button>
+    </div>
+    <div *ngIf="isButton">
+        <button type="submit" class="btn btn-primary" (click)="updateData(myGroup.value)">Update</button>
+    </div>
+</form>
