@@ -1,17 +1,16 @@
- var usermodel = require('../models/user');
+const usermodel = require('../models/user');
 const winston = require('winston');
 
 module.exports.getusers=function (req, res) {
-    console.log('in controller');
     usermodel.getusers()
     .then(data=>{
+        winston.info('Fetched All Users');
         winston.info(data);
         res.json(data);
-        winston.info('Fetched All Users');
     })
     .catch(function(err){
-        res.send(err);
         winston.error(err);
+        res.send(err);
     });
 }
 
@@ -23,23 +22,20 @@ module.exports.get=function(req,res){
         res.json(data);
     })
     .catch(function(err){
-        res.send(err);
         winston.error(err);
+        res.send(err);
     });
 }
 
 module.exports.post=function(req,res){
-    console.log("in controller");
     let userInfo = req.body;
-    console.log(userInfo);
      usermodel.post(userInfo) 
      .then(data=>{
-         winston.info('User added successfully');
         res.json(data);
     })
     .catch(function(err){
-        res.send(err);
         winston.error(err);
+        res.send(err);
     });   
 }
 
@@ -51,8 +47,8 @@ module.exports.put=function(req,res){
         res.json(data);
     })
     .catch(function(err){
-        res.send(err);
         winston.error(err);
+        res.send(err);
     });
 }
 
@@ -64,7 +60,7 @@ module.exports.delete=function(req,res){
         res.json(data);
     })
     .catch(function(err){
-        res.send(err);
         winston.error(err);
+        res.send(err);
     });
 }
