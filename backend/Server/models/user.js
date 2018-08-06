@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // mongoose.connect('mongodb://krishna:argusadmin@localhost:27017/admin');
-mongoose.connect('mongodb://localhost/user-data');
+mongoose.connect('mongodb://localhost/users');
 const winston = require('winston');
 
 const userSchema = mongoose.Schema({
