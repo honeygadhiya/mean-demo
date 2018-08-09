@@ -16,6 +16,6 @@ app.use('/', routes);
 app.use(express.static('./public'));
 
 
-app.listen(process.env.PORT || 8088,function(){
-    console.log("Express server listening on port 5555", );
+app.listen(process.env.PORT || 8088,'65.49.37.156',function(){
+    console.log("Express server listening on port 8088", );
   });
