@@ -5,22 +5,22 @@ import {Student} from '../model/student';
 @Injectable()
 export class StudentDataService {
   data=[];
-  //url="http://localhost:5555/student";
+  url="http://65.49.37.156:8088/user";
   constructor(private http:Http) { }
   getData(){
-     return this.http.get("http://localhost:5555/user")
+     return this.http.get(url)
       .map((response:Response)=>
          response.json()
           );
   }
 
   addData(data:Student){
-    return this.http.post("http://localhost:5555/user", data);
+    return this.http.post(url, data);
   }
 
   getDataById(id:number){
     // return this.http.get("http://localhost:5555/student"+"/"+id)
-    return this.http.get(`http://localhost:5555/user/${id}`)
+    return this.http.get(`${url}/${id}`)
       .map((response:Response)=>
       response.json()
     );
@@ -28,11 +28,11 @@ export class StudentDataService {
   }
 
   deleteData(id:number){
-    return this.http.delete(`http://localhost:5555/user/${id}`);
+    return this.http.delete(`${url}/${id}`);
   }
  
   updateData(data:Student){
-    return this.http.put(`http://localhost:5555/user/${data.id}`,data);
+    return this.http.put(`${url}/${data.id}`,data);
       
   }
 
