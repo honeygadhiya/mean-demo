@@ -5,7 +5,7 @@ import {Student} from '../model/student';
 @Injectable()
 export class StudentDataService {
   data=[];
-  url = 'http://65.49.37.156:8088/user';
+  url = 'http://65.49.37.156/user';
   
   constructor(private http:Http) { }
   getData(){
