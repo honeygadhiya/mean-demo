@@ -15,7 +15,7 @@ module.exports.getusers = function () {
 }
 
 module.exports.get = function (uId) {
-    return User.findOne({ "id": uId });
+    return User.findOne({ "_id": uId });
 }
 
 module.exports.post = function (user) {
@@ -25,7 +25,7 @@ module.exports.post = function (user) {
 }
 
 module.exports.put = function (uid, body) {
-    return User.findOneAndUpdate({ "id": uid }, body);
+    return User.findOneAndUpdate({ "_id": uid }, body);
 }
 
 module.exports.delete = function (uid) {
